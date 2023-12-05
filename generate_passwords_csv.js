@@ -10,7 +10,7 @@ async function parseFunc() {
 
   for (let i = 0; i < rowCount; i++) {
     const row = table.children[i]
-    const title = row.children[0].textContent
+    const title = row.children[0].textContent.length === 0 ? '---' : row.children[0].textContent
     const website = row.children[1].textContent
     const login = row.children[2].textContent
 
