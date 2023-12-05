@@ -10,6 +10,7 @@ async function parseFunc() {
 
   for (let i = 0; i < rowCount; i++) {
     const row = table.children[i]
+    const title = row.children[0].textContent
     const website = row.children[1].textContent
     const login = row.children[2].textContent
 
@@ -22,10 +23,10 @@ async function parseFunc() {
 
     const password = table.children[i].children[3].children[0].value
     console.log(`${i + 1}/${rowCount}`)
-    data.push([login, password, website])
+    data.push([title, login, password, website])
   }
 
-  data.unshift(['Username', 'Password', 'URL'])
+  data.unshift(['Title', 'Username', 'Password', 'URL'])
   const csvContent = data.map(e => e.join(",")).join("\n");
 
   // Create a blob
